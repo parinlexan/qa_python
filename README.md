@@ -1,5 +1,7 @@
 # qa_python
 
+test_init_genre_age_rating - метод init отдает верный список жанров недоступных детям
+
 test_add_new_book_add_one_book_adds_book - добавление одной книги
 
 test_add_new_book_add_two_books_adds_book - добавление двух книг
