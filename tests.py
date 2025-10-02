@@ -6,7 +6,10 @@ from main import BooksCollector
 
 class TestBooksCollector:
 
-    def test_init_genre_age_rating(self, collector):
+    def test_init_(self, collector):
+        assert collector.books_genre == {}
+        assert collector.favorites == []
+        assert collector.genre == ['Фантастика', 'Ужасы', 'Детективы', 'Мультфильмы', 'Комедии']
         assert collector.genre_age_rating == ['Ужасы', 'Детективы']
 
     def test_add_new_book_add_one_book(self, collector):
