@@ -71,11 +71,11 @@ class TestBooksCollector:
                                        'Ужасы', 'Детективы'])
     def test_get_books_with_specific_genre_existing_genre(self, collector, genre):
         collector.add_new_book('Сумерки')
-        collector.set_book_genre('Сумерки', random.choice(BooksCollector().genre))
+        collector.set_book_genre('Сумерки', genre)
         collector.add_new_book('Рассвет')
         collector.set_book_genre('Рассвет', genre)
         assert ('Сумерки' in collector.get_books_with_specific_genre(genre)
-                or 'Рассвет' in collector.get_books_with_specific_genre(genre))
+                and 'Рассвет' in collector.get_books_with_specific_genre(genre))
 
     def test_get_list_of_favorites_books(self, pre_added_book):
         pre_added_book.add_book_in_favorites('История чилибони')
