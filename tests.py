@@ -81,9 +81,14 @@ class TestBooksCollector:
         pre_added_book.add_book_in_favorites('История чилибони')
         assert pre_added_book.get_list_of_favorites_books() != []
 
-    def test_add_book_in_favorites(self, pre_added_book):
-        pre_added_book.add_book_in_favorites('История чилибони')
-        assert pre_added_book.get_list_of_favorites_books() != []
+    def test_add_book_in_favorites_two_books(self,collector, pre_added_book):
+        collector.add_new_book('История чилибони')
+        collector.set_book_genre('История чилибони', random.choice(BooksCollector().genre))
+        collector.add_new_book('Никитобойный промысел')
+        collector.set_book_genre('Никитобойный промысел', random.choice(BooksCollector().genre))
+        collector.add_book_in_favorites('История чилибони')
+        collector.add_book_in_favorites('Никитобойный промысел')
+        assert len(collector.get_list_of_favorites_books()) == 2
 
     def test_delete_book_from_favorites(self, pre_added_book):
         pre_added_book.add_book_in_favorites('История чилибони')
